@@ -1,0 +1,14 @@
+{
+  "name": "Projet_IntegrationContinue",
+  "type": "module",
+  "version": "1.0.0",
+  "dependencies": {
+    "twitter-api-v2": "^1.12.5"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
