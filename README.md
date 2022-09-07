@@ -1,2 +1,2 @@
-# Projet_IntegrationContinue
-Projet réalisé avec Julien FAURE, Paul ACHARD, Luna LOISEL--RAMEL dans cadre du cours d'intégration continue
+# Projet Intégration Continue
+Projet réalisé avec Julien FAURE, Paul ACHARD, Luna LOISEL--RAMEL dans le cadre du cours d'intégration continue.
