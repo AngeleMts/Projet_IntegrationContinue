@@ -22,3 +22,5 @@ npm run server
 ## Web page
 
 Open [index.html](src/index.html) with your browser.
+
+> **Backend server need to be started !**
