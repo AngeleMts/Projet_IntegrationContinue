@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <script src="js/app.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/search.css">
     <meta name="viewport"
@@ -53,23 +52,5 @@
 </main>
 </body>
 
-<script>
-    document.getElementById('search-textbox').focus();
-
-
-    let slider = document.getElementById('slider-container');
-    let sliderIndex = 0;
-    setInterval(sliderTick, 1000);
-
-    function sliderTick() {
-        sliderIndex += 150;
-
-        if(sliderIndex > slider.scrollWidth){
-            sliderIndex = 0;
-        }
-
-        slider.scrollLeft = sliderIndex;
-    }
-
-</script>
+<script type="module" src="js/apps/HomePageApp.js"></script>
 </html>
