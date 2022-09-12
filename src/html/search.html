@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/search.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Search</title>
+</head>
+<body>
+<main>
+    <header>
+        <img src="../img/logo.png" alt="logo">
+    </header>
+    <section id="search-section">
+        <div>
+            <h1>Which mooooooooood ?</h1>
+            <h2>I am a description, we can write what we want here.</h2>
+            <div class="input-container">
+                <label>
+                    <input id="search-textbox" type="text" placeholder="ElonMush">
+                </label>
+                <input id="search-button" type="button" value="Search">
+            </div>
+        </div>
+        <div class="slider">
+
+            <div id="slider-container" class="slides">
+                <img id="slide-1" src="../img/tweet_elon.png" alt="tweet1">
+                <img id="slide-2" src="../img/tweet_dieu.png" alt="tweet2">
+                <img id="slide-3" src="../img/tweet_terracid.png" alt="tweet3">
+                <img id="slide-4" src="../img/tweet_savoir.png" alt="tweet4">
+                <img id="slide-5" src="../img/tweet_zevent.png" alt="tweet5">
+            </div>
+        </div>
+
+    </section>
+
+    <section id="about">
+        <h1>About</h1>
+        <p>
+            Qui dolorem beatae At tempore doloremque At autem corrupti
+            et nobis voluptas quo illo alias qui assumenda molestias
+            quo deleniti dolores. Eos autem consequatur vel consequuntur
+            ullam sit natus suscipit ex quisquam dolor aut sunt beatae
+            aut facere dolorem et molestiae odio! Qui commodi maxime a
+            voluptatem dolorum sed Quis sapiente. Vel reprehenderit doloribus
+            aut dolor molestiae et expedita maxime in molestias libero quo
+            magnam ipsam et quos velit.
+        </p>
+    </section>
+</main>
+</body>
+
+<script>
+    document.getElementById('search-textbox').focus();
+
+
+    let slider = document.getElementById('slider-container');
+    let sliderIndex = 0;
+    setInterval(sliderTick, 1000);
+
+    function sliderTick() {
+        sliderIndex += 150;
+
+        if(sliderIndex > slider.scrollWidth){
+            sliderIndex = 0;
+        }
+
+        slider.scrollLeft = sliderIndex;
+    }
+
+</script>
+</html>
