@@ -21,6 +21,36 @@ npm run server
 
 ## Web page
 
-Open [index.html](src/index.html) with your browser.
+```bash
+npm run front
+```
+
+Go to [http://127.0.0.1:8080](http://127.0.0.1:8080)
 
 > **Backend server need to be started !**
+
+## Docker
+
+### Build
+
+```bash
+sudo docker build . -t moodrt
+```
+
+### Run
+
+```bash
+sudo docker run -p 3000:3000 -p 8080:8080 -d --name moodrt-container moodrt
+```
+
+### Stop
+
+```bash
+sudo docker stop moodrt-container
+```
+
+### Remove old container
+
+```bash
+sudo docker container rm moodrt-container
+```
