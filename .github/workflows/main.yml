@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Tests:
+  build-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,10 +14,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install NPM dependencies
+      - name: Install dependencies
         run: |
           npm install
-
-      - name: Run backend tests
-        run: |
-          ls && npm run test
