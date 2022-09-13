@@ -46,7 +46,7 @@ jobs:
           image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
           id: moodrt-container
           run: |
-            ls
+            curl http://localhost:3000
 #  app-tests:
 #    runs-on: ubuntu-latest
 #    needs:
