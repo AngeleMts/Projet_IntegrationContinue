@@ -1,5 +1,5 @@
 import TwitterService from "../services/TwitterService.js";
-import SentimentAnalysisService from "../services/SentimentAnalysisService.js"; 
+import SentimentAnalysisService from "../services/SentimentAnalysisService.js";
 
 const searchTextBox = document.getElementById('search-textbox');
 const searchButton = document.getElementById('search-button');
@@ -28,11 +28,14 @@ function sliderTick() {
 searchButton.addEventListener('click', () => {
     new TwitterService().getLastTweetByUsername(searchTextBox.value)
         .then(value => {
-            console.log("TWEET : "+value);
-            new SentimentAnalysisService().getAnalysis(value).then( result => {
-                console.log("RESULTAT : "+ result);
+            const parsedValue = JSON.parse(value);
+            console.log(parsedValue);
+            console.log("ID : " + parsedValue.id)
+            console.log("TWEET : " + parsedValue.tweet);
+            new SentimentAnalysisService().getAnalysis(parsedValue.tweet).then(result => {
+                console.log("RESULTAT : " + result);
             }).catch(e => {
-                console.error(e); 
+                console.error(e);
             })
         })
         .catch(reason => {

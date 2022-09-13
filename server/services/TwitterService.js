@@ -19,8 +19,11 @@ export default class TwitterService {
 
         const tweetList = await readOnlyClient.v2.userTimeline(user.data.id, {max_results: 5});
 
-        const tweet = tweetList.tweets[0].text;
+        const tweet = tweetList.tweets[0];
 
-        return this.cleanTweet(tweet);
+        return {
+            id: tweet.id,
+            tweet: this.cleanTweet(tweet.text)
+        };
     }
 }
