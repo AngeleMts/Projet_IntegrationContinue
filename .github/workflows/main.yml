@@ -55,7 +55,7 @@ jobs:
       - docker-image
     services:
       app:
-        image: ${{ env.ENV_DOCKER_HUB_USERNAME }}/moodrt:latest
+        image: "${{ env.ENV_DOCKER_HUB_USERNAME }}/moodrt:latest"
         ports:
           - 3000:3000
           - 8080:8080
