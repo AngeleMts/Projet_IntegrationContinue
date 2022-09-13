@@ -22,7 +22,7 @@ jobs:
         run: |
           npm run test
 
-  build-docker-image:
+  docker-image:
     runs-on: ubuntu-latest
     needs: [tests]
     steps:
@@ -32,10 +32,19 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
-      - name: Build and push
+      - name: Build
         uses: docker/build-push-action@v2
         with:
           context: ./
           file: ./Dockerfile
           push: false
-          tags: nodejs-demo:latest
+          tags: moodrt:latest
+
+      - name: Run and test docker image
+        uses: addnab/docker-run-action@v3
+        with:
+          image: moodrt:latest
+          run: |
+            echo "Running the docker image" |
+            curl http://127.0.0.1:8080 |
+            curl http://127.0.0.1:3000
