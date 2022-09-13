@@ -46,19 +46,19 @@ jobs:
           image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
           id: moodrt-container
           run: |
-            echo "Running the docker image"
-  app-tests:
-    runs-on: ubuntu-latest
-    needs:
-      - docker-image
-    container:
-      image: ${{ secrets.ENV_DOCKER_HUB_USERNAME }}/moodrt:latest
-      ports:
-        - 3000:3000
-        - 8080:8080
-    steps:
-      - name: Backend response
-        run: http://localhost:3000
-
-      - name: Fronted response
-        run: http://localhost:8080
+            ls
+#  app-tests:
+#    runs-on: ubuntu-latest
+#    needs:
+#      - docker-image
+#    container:
+#      image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
+#      ports:
+#        - 3000:3000
+#        - 8080:8080
+#    steps:
+#      - name: Backend response
+#        run: http://localhost:3000
+#
+#      - name: Fronted response
+#        run: http://localhost:8080
