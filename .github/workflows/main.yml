@@ -32,14 +32,25 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+
       - name: Build
         uses: docker/build-push-action@v2
         with:
           context: ./
           file: ./Dockerfile
-          push: false
+          push: push
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
 
+  app-tests:
+    runs-on: ubuntu-latest
+    needs:
+      - docker-image
+    steps:
       - name: Run test docker image
         uses: addnab/docker-run-action@v3
         with:
@@ -50,18 +61,3 @@ jobs:
             bash startup.sh &
             if [ $(curl -I http://127.0.0.1:8080 2>/dev/null | head -n 1 | cut -d$' ' -f2) -ne 200 ]; then echo "Frontend server error" && exit 1; fi
             if [ $(curl -I http://127.0.0.1:3000 2>/dev/null | head -n 1 | cut -d$' ' -f2) -ne 404 ]; then echo "Backend server error" && exit 1; fi
-#  app-tests:
-#    runs-on: ubuntu-latest
-#    needs:
-#      - docker-image
-#    container:
-#      image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
-#      ports:
-#        - 3000:3000
-#        - 8080:8080
-#    steps:
-#      - name: Backend response
-#        run: http://localhost:3000
-#
-#      - name: Fronted response
-#        run: http://localhost:8080
