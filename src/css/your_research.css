@@ -10,6 +10,7 @@ header {
     font: 13px monospace;
     color: #ffffff;
 }
+
 p {
     margin-top: 20px;
 }
@@ -17,6 +18,11 @@ p {
 h1 {
     margin: 10px 10px 10px 10px;
 }
+
+tweet {
+    margin: 10px 10px 10px 10px;
+}
+
 .cntr {
     display: table;
     width: 100%;
