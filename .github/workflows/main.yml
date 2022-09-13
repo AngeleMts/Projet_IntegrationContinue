@@ -37,14 +37,15 @@ jobs:
         with:
           context: ./
           file: ./Dockerfile
-          push: false
-          tags: moodrt:latest
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/moodrt:latest
 
-      - name: Run and test docker image
-        uses: addnab/docker-run-action@v3
-        with:
-          image: moodrt:latest
-          run: |
-            echo "Running the docker image" |
-            curl http://127.0.0.1:8080 |
-            curl http://127.0.0.1:3000
+#      - name: Run and test docker image
+#        uses: addnab/docker-run-action@v3
+#        with:
+#          image: moodrt:latest
+#          id: moodrt-container
+#          run: |
+#            echo "Running the docker image" |
+#            docker  |
+#            curl http://127.0.0.1:3000
