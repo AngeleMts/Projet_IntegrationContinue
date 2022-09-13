@@ -1,6 +1,6 @@
 export default class SentimentAnalysisService {
 
-    getAnalysis(msg) {
+    async getAnalysis(msg) {
         try {
             const options = {
                 method: 'POST',
