@@ -14,17 +14,8 @@ export default class SentimentAnalysisService {
             };
             
             var analysis = axios.request(options).then(function (response) {
-                console.log(response.data);
-                const data = response.data;
-                const result = `Your text sounds ${data.sentiment
-                    }. It has ${Math.floor(
-                        data.aggregate_sentiment.pos * 100
-                    )}% positivity, and ${Math.floor(
-                        data.aggregate_sentiment.neg * 100
-                    )}% negativity. It has a neutral level of ${Math.floor(
-                        data.aggregate_sentiment.neu * 100
-                    )}%.`;
-                    return Promise.resolve(result); 
+                const data = JSON.stringify(response.data);
+                return Promise.resolve(data); 
             }).catch(function (error) {
                 return Promise.reject(error);
             });  
