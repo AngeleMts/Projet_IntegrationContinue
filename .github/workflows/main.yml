@@ -53,7 +53,7 @@ jobs:
       - docker-image
     services:
       app:
-        image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
+        image: julien30/moodrt:latest
         ports:
           - 3000:3000
           - 8080:8080
