@@ -46,8 +46,8 @@ jobs:
           image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
           id: moodrt-container
           run: |
-            bash startup.sh & |
-            curl http://localhost:3000 |
+            bash startup.sh & ;|
+            curl http://localhost:3000 ;|
             curl http://localhost:8080
 #  app-tests:
 #    runs-on: ubuntu-latest
