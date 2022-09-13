@@ -1,3 +1,13 @@
-FROM nginx:1.23.1
+FROM node:12
 
-COPY src/* /usr/share/nginx/html/
+WORKDIR /app
+
+COPY src/ src/
+COPY server/ server/
+COPY package.json .
+COPY startup.sh .
+
+RUN npm install
+
+
+CMD ["/bin/bash", "startup.sh"]
