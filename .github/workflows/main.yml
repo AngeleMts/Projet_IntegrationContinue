@@ -48,14 +48,14 @@ jobs:
           run: |
             echo "Running the docker image"
   app-tests:
-    env:
-      ENV_DOCKER_HUB_USERNAME: "${{ secrets.DOCKER_HUB_USERNAME }}"
     runs-on: ubuntu-latest
     needs:
       - docker-image
+    env:
+      ENV_DOCKER_HUB_USERNAME: "${{ secrets.DOCKER_HUB_USERNAME }}"
     services:
       app:
-        image: "${{ env.ENV_DOCKER_HUB_USERNAME }}/moodrt:latest"
+        image: ${{ env.ENV_DOCKER_HUB_USERNAME }}/moodrt:latest
         ports:
           - 3000:3000
           - 8080:8080
