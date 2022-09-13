@@ -20,4 +20,4 @@ jobs:
 
       - name: Run backend tests
         run: |
-          ls && npm run test
+          npm run test
