@@ -44,7 +44,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:${GITHUB_REF##*/}
 
   app-tests:
     runs-on: ubuntu-latest
@@ -54,13 +54,10 @@ jobs:
       - name: Run test docker image
         uses: addnab/docker-run-action@v3
         with:
-          image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:latest
+          image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:${GITHUB_REF##*/}
           id: moodrt-container
           shell: bash
           run: |
             bash startup.sh &
             if [ $(curl -I http://127.0.0.1:8080 2>/dev/null | head -n 1 | cut -d$' ' -f2) -ne 200 ]; then echo "Frontend server error" && exit 1; fi
             if [ $(curl -I http://127.0.0.1:3000 2>/dev/null | head -n 1 | cut -d$' ' -f2) -ne 404 ]; then echo "Backend server error" && exit 1; fi
-
-      - name: Branch name
-        run: echo running on branch ${GITHUB_REF##*/}
