@@ -59,7 +59,7 @@ jobs:
       - name: Run test docker image
         uses: addnab/docker-run-action@v3
         with:
-          image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:${GITHUB_REF##*/}
+          image: ${{ secrets.DOCKER_HUB_USERNAME }}/moodrt:${{ steps.extract_branch.outputs.branch }}
           id: moodrt-container
           shell: bash
           run: |
