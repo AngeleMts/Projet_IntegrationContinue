@@ -56,6 +56,11 @@ jobs:
     needs:
       - docker-image
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Run test docker image
         uses: addnab/docker-run-action@v3
         with:
