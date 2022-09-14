@@ -7,6 +7,7 @@ Projet réalisé par :
 
 Ce projet s'inscrit dans le cadre du cours d'intégration continue.
 
+sentiment-analysis : [https://rapidapi.com/gaurmanojkumar530/api/text-analysis12/](API_sentiment-analysis)
 
 ## Init
 
