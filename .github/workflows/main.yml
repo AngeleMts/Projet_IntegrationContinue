@@ -61,3 +61,6 @@ jobs:
             bash startup.sh &
             if [ $(curl -I http://127.0.0.1:8080 2>/dev/null | head -n 1 | cut -d$' ' -f2) -ne 200 ]; then echo "Frontend server error" && exit 1; fi
             if [ $(curl -I http://127.0.0.1:3000 2>/dev/null | head -n 1 | cut -d$' ' -f2) -ne 404 ]; then echo "Backend server error" && exit 1; fi
+
+      - run: |
+          echo "##[set-output name=branch;]${GITHUB_REF#refs/heads/}"
