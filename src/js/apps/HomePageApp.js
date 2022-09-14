@@ -53,3 +53,11 @@ searchButton.addEventListener('click', () => {
             console.error(reason);
         });
 })
+
+// trigger button on enter key
+searchTextBox.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("search-button").click();
+    }
+});
