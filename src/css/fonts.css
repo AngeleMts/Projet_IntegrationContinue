@@ -4,3 +4,8 @@
     font-weight: normal;
     src: url('../fonts/ProductSans-Thin.woff') format('woff');
 }
+
+@font-face {
+    font-family: 'Google Sans Regular Italic';
+    src: url('../fonts/ProductSans-LightItalic.woff') format('woff');
+}

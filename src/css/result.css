@@ -1,0 +1,88 @@
+@import "fonts.css";
+
+html {
+    scroll-behavior: smooth;
+}
+
+#result-section {
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+#result-section.animated {
+    background: #2980b9 url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+    -webkit-animation: 10s linear 0s normal none infinite animate;
+    -moz-animation: 10s linear 0s normal none infinite animate;
+    -ms-animation: 10s linear 0s normal none infinite animate;
+    -o-animation: 10s linear 0s normal none infinite animate;
+    animation: 10s linear 0s normal none infinite animate;
+}
+
+/* -------------------------------------------------------- */
+
+.tweet-tile {
+    width: 600px;
+
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(1);
+
+    padding: 20px;
+    border-radius: 20px;
+
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: -5px -5px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+.tweet-tile h1 {
+    font-size: 3em;
+    margin-top: 0;
+}
+
+.tweet-tile h2 {
+    font-family: "Google Sans Regular Italic", serif;
+}
+
+/* -------------------------------------------------------- */
+
+.analyse-result {
+    margin-top: 20px;
+}
+
+.analyse-result h1 {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* -------------------------------------------------------- */
+/* Source : https://codepen.io/asfarmed/pen/zYQYMy          */
+@-webkit-keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 500px 0;}
+}
+
+@-moz-keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 500px 0;}
+}
+
+@-ms-keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 500px 0;}
+}
+
+@-o-keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 500px 0;}
+}
+
+@keyframes animate {
+    from {background-position:0 0;}
+    to {background-position: 500px 0;}
+}
+
