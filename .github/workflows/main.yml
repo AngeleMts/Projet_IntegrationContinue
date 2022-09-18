@@ -85,8 +85,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.extract_branch.outputs.branch }}-${GITHUB_SHA}"
-          release_name: Release ${{ steps.extract_branch.outputs.branch }}-${GITHUB_SHA}"
+          tag_name: ${{ steps.extract_branch.outputs.branch }}-${{ github.sha }} "
+          release_name: Release ${{ steps.extract_branch.outputs.branch }}-${{ github.sha }}"
           body: |
             Changes in this Release
             - First Change
