@@ -1,5 +1,8 @@
 name: Main workflow
-on: [ push ]
+on:
+  push:
+    tags:
+      - '**'
 jobs:
   tests:
     runs-on: ubuntu-latest
